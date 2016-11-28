@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->string('comment', 255)->nullable();
             $table->string('naam', 45)->nullable();
             $table->integer('recipes_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->integer('users_id')->unsigned();
 
 
             $table->foreign('recipes_id', 'fk_comments_recipes1_idx')
@@ -27,8 +27,8 @@ class CreateCommentsTable extends Migration
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('user_id', 'fk_comments_user1_idx')
-                ->references('id')->on('user')
+            $table->foreign('users_id', 'fk_comments_users1_idx')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

@@ -20,12 +20,11 @@ class CreateRecipesTable extends Migration
             $table->text('description')->nullable();
             $table->string('category', 25);
             $table->text('image')->nullable();
-            $table->integer('user_id')->unsigned();
-            $table->string('catagory', 45)->nullable();
+            $table->integer('users_id')->unsigned();
 
 
-            $table->foreign('user_id', 'fk_recipes_user1_idx')
-                ->references('id')->on('user')
+            $table->foreign('users_id', 'fk_recipes_users1_idx')
+                ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
