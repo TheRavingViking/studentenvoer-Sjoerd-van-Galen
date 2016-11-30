@@ -13,7 +13,7 @@ class CreateStepTable extends Migration
      */
     public function up()
     {
-        Schema::create('step', function (Blueprint $table) {
+        Schema::create('steps', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('step_number');
