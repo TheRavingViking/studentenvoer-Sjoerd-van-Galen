@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(add_recipe::class);
         $this->call(add_ingred::class);
         $this->call(add_steps::class);
+        $this->call(add_ratings::class);
     }
 }
