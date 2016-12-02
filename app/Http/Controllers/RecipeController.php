@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Ratings;
 use App\recipes;
 
 class RecipeController extends Controller
@@ -11,6 +10,12 @@ class RecipeController extends Controller
     {
         $recipes = Recipes::with('ratings')->get();
         return view ('overview', compact('recipes'));
-
     }
+
+    public function view ()
+    {
+        return view ('addrecipe');
+    }
+
+
 }

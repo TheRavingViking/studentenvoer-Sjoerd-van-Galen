@@ -3,6 +3,7 @@
 namespace App;
 use db;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Recipes extends Model
@@ -30,6 +31,28 @@ class Recipes extends Model
 
     }
 
+    public function reviewRows()
+    {
+        return $this->hasMany(Ratings::class, 'rating');
+    }
+
+    public function avgRating()
+    {
+        return $this->reviewRows()
+            ->selectRaw('avg(rating) as aggregate, recipes_id')
+            ->groupBy('recipes_id');
+    }
+
+    public function getAvgRatingAttribute()
+    {
+        if ( ! array_key_exists('avgRating', $this->relations)) {
+            $this->load('avgRating');
+        }
+
+        $relation = $this->getRelation('avgRating')->first();
+
+        return ($relation) ? $relation->aggregate : null;
+    }
 
 
 

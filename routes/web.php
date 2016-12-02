@@ -14,4 +14,5 @@
 Auth::routes();
 
 Route::get('/', 'RecipeController@index');
+Route::get('/addrecipe', 'RecipeController@view');
 
