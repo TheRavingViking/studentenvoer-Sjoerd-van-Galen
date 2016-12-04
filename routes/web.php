@@ -15,4 +15,4 @@ Auth::routes();
 
 Route::get('/', 'RecipeController@index');
 Route::get('/addrecipe', 'RecipeController@view');
-
+Route::post('/overview', 'RecipeController@insert');

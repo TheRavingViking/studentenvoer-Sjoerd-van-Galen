@@ -17,5 +17,10 @@ class RecipeController extends Controller
         return view ('addrecipe');
     }
 
+    public function insert ()
+    {
+        echo 'hallo';
+    }
+
 
 }
