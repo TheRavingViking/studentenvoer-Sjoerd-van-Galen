@@ -3,24 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\recipes;
+use App\ingredients;
+use Illuminate\Http\Request;
+use auth;
 
 class RecipeController extends Controller
 {
-    public function index ()
+    public function index()
     {
         $recipes = Recipes::with('ratings')->get();
-        return view ('overview', compact('recipes'));
+        return view('overview', compact('recipes'));
     }
 
-    public function view ()
+    public function view()
     {
-        return view ('addrecipe');
+        return view('addrecipe');
     }
 
-    public function insert ()
+    public function insert(Request $req)
     {
-        echo 'hallo';
+        $recipe = new Recipes();
+        $ingredient = new Ingredients();
+
+        $recipe->users_id = Auth::id();
+        $recipe->name = $req->RecipeName;
+        $recipe->description = $req->RecipeDescription;
+
+        $ingredient->name = $req->ingredient;
+        $ingredient->unit = $req->amount;
+        $ingredient->amount = $req->unit;
+        $ingredient->recipes_id = $recipe->id;
+
+        $recipe->save();
+        $ingredient->save();
+
+        return view('overview');
+
     }
-
-
 }
+
