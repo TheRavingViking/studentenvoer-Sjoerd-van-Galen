@@ -21,6 +21,8 @@ class CreateRecipesTable extends Migration
             $table->string('category', 25);
             $table->text('image')->nullable();
             $table->integer('users_id')->unsigned();
+            $table->timestamp('created_at')->nullable()->default(null);
+            $table->timestamp('updated_at')->nullable()->default(null);
 
 
             $table->foreign('users_id', 'fk_recipes_users1_idx')

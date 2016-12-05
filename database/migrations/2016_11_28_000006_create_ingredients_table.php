@@ -20,6 +20,8 @@ class CreateIngredientsTable extends Migration
             $table->string('unit', 20);
             $table->string('amount', 20);
             $table->integer('recipes_id')->unsigned();
+            $table->timestamp('created_at')->nullable()->default(null);
+            $table->timestamp('updated_at')->nullable()->default(null);
 
 
             $table->foreign('recipes_id', 'fk_ingredients_recipes1_idx')

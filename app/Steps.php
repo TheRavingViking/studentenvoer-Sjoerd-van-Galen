@@ -8,7 +8,7 @@ class Steps extends Model
 {
     protected $table = "steps";
 
-    public function recipe()
+    public function recipes()
     {
         return $this->belongsTo(Recipes::class);
     }

@@ -20,6 +20,8 @@ class CreateCommentsTable extends Migration
             $table->string('naam', 45)->nullable();
             $table->integer('recipes_id')->unsigned();
             $table->integer('users_id')->unsigned();
+            $table->timestamp('created_at')->nullable()->default(null);
+            $table->timestamp('updated_at')->nullable()->default(null);
 
 
             $table->foreign('recipes_id', 'fk_comments_recipes1_idx')

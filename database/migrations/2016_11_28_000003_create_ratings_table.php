@@ -18,6 +18,8 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->integer('rating');
             $table->integer('recipes_id')->unsigned();
+            $table->timestamp('created_at')->nullable()->default(null);
+            $table->timestamp('updated_at')->nullable()->default(null);
 
 
             $table->foreign('recipes_id', 'fk_ratings_recipes1_idx')
