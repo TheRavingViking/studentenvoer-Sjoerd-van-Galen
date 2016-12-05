@@ -28,13 +28,11 @@ class RecipeController extends Controller
         $recipe->users_id = Auth::id();
         $recipe->name = $req->RecipeName;
         $recipe->description = $req->RecipeDescription;
-
+        $recipe->save();
         $ingredient->name = $req->ingredient;
         $ingredient->unit = $req->amount;
         $ingredient->amount = $req->unit;
-        $ingredient->recipes_id = $recipe->id;
-
-        $recipe->save();
+        $ingredient->recipes()->associate($recipe);
         $ingredient->save();
 
         return view('overview');

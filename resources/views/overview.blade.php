@@ -7,7 +7,7 @@
         {{$recipe->image}} <br>
         {{$recipe->name}} <br>
         {{$recipe->description}} <br>
-        {{$recipe->catagory}} <br>
+        {{$recipe->category}} <br>
         {{$recipe->Ratings->avg('rating')}} <br>
     @endforeach
 
