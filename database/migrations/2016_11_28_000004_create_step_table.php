@@ -16,7 +16,6 @@ class CreateStepTable extends Migration
         Schema::create('steps', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('step_number');
             $table->text('description');
             $table->integer('recipes_id')->unsigned();
             $table->timestamp('created_at')->nullable()->default(null);

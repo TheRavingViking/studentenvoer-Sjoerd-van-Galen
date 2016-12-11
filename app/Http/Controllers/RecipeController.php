@@ -7,6 +7,7 @@ use App\ingredients;
 use App\Steps;
 use Illuminate\Http\Request;
 use auth;
+use DB;
 
 class RecipeController extends Controller
 {
@@ -23,26 +24,33 @@ class RecipeController extends Controller
 
     public function insert(Request $req)
     {
-
+        $items = $req->all();
 
         $recipe = new Recipes();
-        $ingredient = new Ingredients();
-        $step = new Steps();
-
         $recipe->users_id = Auth::id();
         $recipe->name = $req->RecipeName;
         $recipe->description = $req->RecipeDescription;
         $recipe->save();
-        $ingredient->name = $req->ingredient;
-        $ingredient->unit = $req->amount;
-        $ingredient->amount = $req->unit;
-        $ingredient->recipes()->associate($recipe);
-        $ingredient->save();
-        $step->step_number = $req->step;
-        $step->description = $req->stepdescription;
-        $step->recipes()->associate($recipe);
-        $step->save();
 
+
+        $ingredients = $req->ingredient;
+        $ing = explode(PHP_EOL, $ingredients);
+
+        foreach ($ing as $ingredients) {
+            $ingredient = new Ingredients();
+            $ingredient->ingredient = $ingredients;
+            $ingredient->recipes()->associate($recipe);
+            $ingredient->save();
+        }
+
+        $steps = $req->steps;
+        $steps = explode(PHP_EOL, $steps);
+        foreach ($steps as $step) {
+            $steps = new Steps();
+            $steps->description = $step;
+            $steps->recipes()->associate($recipe);
+            $steps->save();
+        }
 
         return redirect('overview')->with('Recipe added succesfully');
 
