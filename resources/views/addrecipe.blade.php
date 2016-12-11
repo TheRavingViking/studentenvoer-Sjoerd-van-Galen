@@ -15,7 +15,14 @@
                             <input id="RecipeName" name="RecipeName" type="text" class="form-control"
                                    placeholder="Recipe name"><br>
                             <input id="RecipeDescription" name="RecipeDescription" type="text" class="form-control"
-                                   placeholder="Recipe Description"><br>
+                                   placeholder="Recipe Description">
+                            <select name="Category" title="Category">
+                                <option value="">Category</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Diner">Diner</option>
+                                <option value="Dessert">Dessert</option>
+                            </select>
                         </div>
 
                         <div>

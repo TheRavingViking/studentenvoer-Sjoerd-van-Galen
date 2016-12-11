@@ -30,6 +30,7 @@ class RecipeController extends Controller
         $recipe->users_id = Auth::id();
         $recipe->name = $req->RecipeName;
         $recipe->description = $req->RecipeDescription;
+        $recipe->category = $req->Category;
         $recipe->save();
 
 
