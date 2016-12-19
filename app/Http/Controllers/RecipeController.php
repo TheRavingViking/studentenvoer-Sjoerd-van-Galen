@@ -38,19 +38,23 @@ class RecipeController extends Controller
         $ing = explode(PHP_EOL, $ingredients);
 
         foreach ($ing as $ingredients) {
-            $ingredient = new Ingredients();
-            $ingredient->ingredient = $ingredients;
-            $ingredient->recipes()->associate($recipe);
-            $ingredient->save();
+            if (!$ingredients == "") {
+                $ingredient = new Ingredients();
+                $ingredient->ingredient = $ingredients;
+                $ingredient->recipes()->associate($recipe);
+                $ingredient->save();
+            }
         }
 
         $steps = $req->steps;
         $steps = explode(PHP_EOL, $steps);
         foreach ($steps as $step) {
-            $steps = new Steps();
-            $steps->description = $step;
-            $steps->recipes()->associate($recipe);
-            $steps->save();
+            if (!$step == "") {
+                $steps = new Steps();
+                $steps->description = $step;
+                $steps->recipes()->associate($recipe);
+                $steps->save();
+            }
         }
 
         return redirect('overview')->with('Recipe added succesfully');
