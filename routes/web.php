@@ -15,5 +15,7 @@ Auth::routes();
 
 Route::get('/', 'RecipeController@index');
 Route::get('overview', 'RecipeController@index');
-Route::get('/addrecipe', 'RecipeController@view');
+Route::get('/recipepage/{recipes}', 'RecipeController@show');
+Route::get('/addrecipe', 'RecipeController@create');
 Route::post('/', 'RecipeController@insert');
+Route::post('/addcomment', 'RecipeController@insertComment');

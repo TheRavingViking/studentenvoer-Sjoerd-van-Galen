@@ -18,8 +18,8 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->string('comment', 255)->nullable();
             $table->string('naam', 45)->nullable();
+            $table->string('email', 255)->nullable();
             $table->integer('recipes_id')->unsigned();
-            $table->integer('users_id')->unsigned();
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);
 
@@ -29,10 +29,6 @@ class CreateCommentsTable extends Migration
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('users_id', 'fk_comments_users1_idx')
-                ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 

@@ -16,7 +16,7 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('ingredient', 255);
+            $table->string('name', 255);
             $table->integer('recipes_id')->unsigned();
             $table->timestamp('created_at')->nullable()->default(null);
             $table->timestamp('updated_at')->nullable()->default(null);

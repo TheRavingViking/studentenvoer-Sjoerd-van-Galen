@@ -12,14 +12,19 @@ class add_ingred extends Seeder
     public function run()
     {
         DB::table('ingredients')->insert(array(
-            array('ingredient' => 'Pasta', 'recipes_id' => '1'),
-            array('ingredient' => 'Sauce', 'recipes_id' => '1'),
-            array('ingredient' => 'unions','recipes_id' => '1'),
-            array('ingredient' => 'Garlic', 'recipes_id' => '1'),
-            array('ingredient' => 'Curd', 'recipes_id' => '2'),
-            array('ingredient' => 'Cream', 'recipes_id' => '2'),
-            array('ingredient' => 'fruit', 'recipes_id' => '2'),
-            array('ingredient' => 'Cake', 'recipes_id' => '2'),
+            array('name' => 'Pasta', 'recipes_id' => '1'),
+            array('name' => 'Sauce', 'recipes_id' => '1'),
+            array('name' => 'unions','recipes_id' => '1'),
+            array('name' => 'Garlic', 'recipes_id' => '1'),
+            array('name' => 'Curd', 'recipes_id' => '2'),
+            array('name' => 'Cream', 'recipes_id' => '2'),
+            array('name' => 'fruit', 'recipes_id' => '2'),
+            array('name' => 'Cake', 'recipes_id' => '2'),
+            array('name' => 'Curd', 'recipes_id' => '3'),
+            array('name' => 'Cream', 'recipes_id' => '3'),
+            array('name' => 'fruit', 'recipes_id' => '3'),
+            array('name' => 'Cake', 'recipes_id' => '3'),
+
 
 
 

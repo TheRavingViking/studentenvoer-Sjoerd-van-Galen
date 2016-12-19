@@ -16,6 +16,8 @@ class add_ratings extends Seeder
             array('rating' => '1', 'recipes_id' => '1'),
             array('rating' => '5', 'recipes_id' => '2'),
             array('rating' => '3', 'recipes_id' => '2'),
+            array('rating' => '8', 'recipes_id' => '3'),
+            array('rating' => '1', 'recipes_id' => '3'),
 
         ));
     }

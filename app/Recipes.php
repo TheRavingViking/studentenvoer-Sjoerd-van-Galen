@@ -31,28 +31,13 @@ class Recipes extends Model
 
     }
 
-    public function reviewRows()
+
+    public function comments()
     {
-        return $this->hasMany(Ratings::class, 'rating');
+        return $this->hasMany(comments::class);
+
     }
 
-    public function avgRating()
-    {
-        return $this->reviewRows()
-            ->selectRaw('avg(rating) as aggregate, recipes_id')
-            ->groupBy('recipes_id');
-    }
-
-    public function getAvgRatingAttribute()
-    {
-        if ( ! array_key_exists('avgRating', $this->relations)) {
-            $this->load('avgRating');
-        }
-
-        $relation = $this->getRelation('avgRating')->first();
-
-        return ($relation) ? $relation->aggregate : null;
-    }
 
 
 

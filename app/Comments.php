@@ -9,8 +9,8 @@ class Comments extends Model
 
     protected $table = "comments";
 
-    public function User()
+    public function recipe()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(recipes::class);
     }
 }
