@@ -7,6 +7,7 @@ use App\recipes;
 use App\ingredients;
 use App\Steps;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use auth;
 use Image;
 
@@ -90,7 +91,17 @@ class RecipeController extends Controller
         $comments->recipes_id = $id;
         $comments->save();
 
-        return back()->with('status','Comment added succesfully');
+        return back()->with('status', 'Comment added succesfully');
     }
+
+    function deleteComment(Request $request)
+    {
+        $comment_id = $request->comment_id;
+        $comment_id = Comments::find($comment_id);
+        $comment_id->delete();
+        return back()->with('error', 'Comment verwijderd');
+    }
+
+
 }
 

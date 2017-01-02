@@ -5,9 +5,14 @@ use db;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Recipes extends Model
 {
+    use SoftDeletes;
+
     protected $table = "recipes";
 
     public function User()

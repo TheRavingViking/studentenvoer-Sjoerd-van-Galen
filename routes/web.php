@@ -19,3 +19,4 @@ Route::get('/recipepage/{recipes}', 'RecipeController@show');
 Route::get('/addrecipe', 'RecipeController@create');
 Route::post('/', 'RecipeController@insert');
 Route::post('/addcomment', 'RecipeController@insertComment');
+Route::post('/deleteComment', 'RecipeController@deleteComment');

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
     <div class="container">
         <div class="panel panel-default">
@@ -28,14 +29,17 @@
                         <div>
                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                 <textarea id="Ingredients" name="ingredient" class="form-control"
-                                          placeholder="Put each ingredient on its own line, example:( Milk 500 ml)."></textarea> <br>
+                                          placeholder="Put each ingredient on its own line, example:( Milk 500 ml)."></textarea>
+                                <br>
                             </div>
 
                             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                 <textarea id="steps" name="steps" class="form-control"
                                           placeholder="Put each step on its own line."></textarea> <br>
                             </div>
-                                <input type="submit">
+                            <input type="submit">
+
+
                     </form>
 
                 </div>

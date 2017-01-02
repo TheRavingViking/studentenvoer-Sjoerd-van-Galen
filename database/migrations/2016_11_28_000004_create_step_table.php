@@ -18,8 +18,8 @@ class CreateStepTable extends Migration
             $table->increments('id');
             $table->text('description');
             $table->integer('recipes_id')->unsigned();
-            $table->timestamp('created_at')->nullable()->default(null);
-            $table->timestamp('updated_at')->nullable()->default(null);
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('recipes_id', 'fk_step_recipes_idx')

@@ -41,11 +41,18 @@
                 </div>
 
                 <div>
+                    <br>
                     @foreach ($recipes->comments as $comment)
-                        Posted by {{$comment->naam}} Email:{{$comment->email}} <br>
+                        Posted by {{$comment->naam}} <br>
                         {{$comment->comment}}<br>
                         at {{$comment->created_at}}<br>
-
+                        <form method="post" action="/deleteComment">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="text" name="comment_id" value="{{$comment->id}}">
+                            <span class="input-group-btn">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </span>
+                        </form>
                         <hr>
                     @endforeach
 
@@ -71,7 +78,7 @@
                         <div class="form-group">
                             <label class="control-label" for="comment"></label>
                             <textarea class="form-control" id="comment"
-                                      name="comment" required="">Write your comment here</textarea>
+                                      name="comment" required="" placeholder="Write your comment here"></textarea>
                         </div>
 
                         <div class="form-group">
