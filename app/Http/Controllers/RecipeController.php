@@ -99,9 +99,25 @@ class RecipeController extends Controller
         $comment_id = $request->comment_id;
         $comment_id = Comments::find($comment_id);
         $comment_id->delete();
-        return back()->with('error', 'Comment verwijderd');
+        return back()->with('error', 'Comment deleted');
     }
 
+
+    function deleteRecipe(Request $request)
+    {
+        $recipe_id = $request->recipe_id;
+        $recipe_id = Recipes::find($recipe_id);
+        $recipe_id->delete();
+        return redirect('overview')->with('error', 'Recipe deleted');
+    }
+
+    function getUpdateRecipe(Request $request)
+    {
+        $recipe_id = $request->recipe_id;
+        $recipe= Recipes::where('id', $recipe_id)->with('steps', 'ingredients')->get();
+
+        return view('updateRecipe', compact($recipe));
+    }
 
 }
 
