@@ -11,15 +11,16 @@
                         {{$recipe->name}} <br>
                         {{$recipe->description}} <br>
                         {{$recipe->category}} <br>
-                        {{$recipe->Ratings->avg('rating')}} <br>
+                        <input id="likes" name="" type="text" class="rating rating-loading" data-size="lg"
+                               value="{{$recipe->Ratings->avg('rating')}}" disabled>
+
                         <a href="/recipepage/{{$recipe->id}}">Read more</a>
                     </div>
                 </div>
+
             @endforeach
         </div>
     </div>
-
-
 
 
 @endsection

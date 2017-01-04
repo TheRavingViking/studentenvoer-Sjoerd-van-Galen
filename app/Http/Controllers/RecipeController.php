@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comments;
 use App\recipes;
 use App\ingredients;
+use App\Ratings;
 use App\Steps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -83,6 +84,8 @@ class RecipeController extends Controller
         $email = $request->email;
         $comment = $request->comment;
         $id = $request->id;
+        $rating = $request->rate;
+
 
         $comments = new Comments();
         $comments->naam = $name;
@@ -90,6 +93,14 @@ class RecipeController extends Controller
         $comments->comment = $comment;
         $comments->recipes_id = $id;
         $comments->save();
+
+
+
+        $rate = new Ratings();
+        $rate->rating = $rating;
+        $rate->recipes_id = $id;
+
+        $rate->save();
 
         return back()->with('status', 'Comment added succesfully');
     }
@@ -111,13 +122,7 @@ class RecipeController extends Controller
         return redirect('overview')->with('error', 'Recipe deleted');
     }
 
-    function getUpdateRecipe(Request $request)
-    {
-        $recipe_id = $request->recipe_id;
-        $recipe= Recipes::where('id', $recipe_id)->with('steps', 'ingredients')->get();
 
-        return view('updateRecipe', compact($recipe));
-    }
 
 }
 

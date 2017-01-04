@@ -12,8 +12,12 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 
     <!-- Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    <script src="/js/star-rating.js" type="text/javascript"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -82,6 +86,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="/public/js/app.js"></script>
 </body>
 </html>

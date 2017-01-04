@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <img src="/uploads/{{ $recipes->image }}" class="img-responsive">
-
+                <br>
                 <form method="post" action="/deleteRecipe">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="recipe_id" value="{{$recipes->id}}">
@@ -32,17 +32,13 @@
                         </span>
                 </form>
 
-                <form method="post" action="/getUpdateRecipe">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="recipe_id" value="{{$recipes->id}}">
-                    <span class="input-group-btn">
-                            <button class="btn btn-info" type="submit">Update recipe</button>
-                        </span>
-                </form>
-
                 <hr>
 
-                {{$recipes->Ratings->avg('rating')}} <br>
+                <input id="likes" name="likes" type="text" class="rating rating-loading" data-size="lg"
+                       value="{{$recipes->Ratings->avg('rating')}}">
+
+
+                <br>
                 {{$recipes->name}} <br>
                 {{$recipes->description}} <br>
                 {{$recipes->category}} <br>
@@ -100,11 +96,17 @@
                                       name="comment" required="" placeholder="Write your comment here"></textarea>
                         </div>
 
+                        <div>
+                            <label for="rate" class="control-label">Rate this recipe</label>
+                            <input id="rate" name="rate" class="rating rating-loading">
+                        </div>
+
                         <div class="form-group">
                             <label class="control-label" for="postcomment"></label>
                             <input type="hidden" name="id" value="{{$recipes->id}}">
                             <button id="postcomment" name="postcomment" class="btn btn-primary">Post</button>
                         </div>
+
 
                     </form>
                 </div>
@@ -113,4 +115,13 @@
         </div>
     </div>
 
+
+    <script>
+
+        $('#likes').rating({displayOnly: true});
+
+
+    </script>
+
 @endsection
+
