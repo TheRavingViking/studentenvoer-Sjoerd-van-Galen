@@ -1,12 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Lato|Raleway');
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-
-
 
 .label, sub, sup {
     vertical-align: baseline
@@ -18,7 +16,6 @@ hr, img {
 
 body, figure {
     margin: 0;
-    background: red;
 }
 
 .btn-group > .btn-group, .btn-toolbar .btn, .btn-toolbar .btn-group, .btn-toolbar .input-group, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .dropdown-menu {
@@ -34,7 +31,7 @@ body, figure {
 }
 
 html {
-    font-family: sans-serif;
+    font-family: 'Lato', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
@@ -1310,7 +1307,8 @@ html {
 }
 
 body {
-    font-family: Raleway, sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+    font-family: 'Raleway', sans-serif;
     font-size: 14px;
     line-height: 1.6;
     color: #636b6f
@@ -1392,7 +1390,7 @@ hr {
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
+    font-family: 'Lato', sans-serif;
     font-weight: 500;
     line-height: 1.1;
     color: inherit
@@ -1621,7 +1619,8 @@ address, dl {
 }
 
 ol, ul {
-    margin-bottom: 11px
+    margin-bottom: 11px;
+
 }
 
 .list-inline {
@@ -1669,6 +1668,11 @@ dd {
     .container {
         width: 750px
     }
+
+    .push-spaces {
+        height: 500px;
+    }
+
 }
 
 .btn-group-vertical > .btn-group:after, .btn-toolbar:after, .clearfix:after, .container-fluid:after, .container:after, .dropdown-menu > li > a, .form-horizontal .form-group:after, .modal-footer:after, .modal-header:after, .navbar-collapse:after, .navbar-header:after, .navbar:after, .pager:after, .panel-body:after, .row:after {
@@ -1791,8 +1795,8 @@ pre code {
 }
 
 .container, .container-fluid {
-    padding-left: 15px;
-    padding-right: 15px
+    padding-left: 0px;
+    padding-right: 0px
 }
 
 .pre-scrollable {
@@ -4195,7 +4199,7 @@ tbody.collapse.in {
 .navbar {
     position: relative;
     min-height: 50px;
-    margin-bottom: 22px;
+    margin-bottom: 0px;
     border: 1px solid transparent
 }
 
@@ -5014,24 +5018,58 @@ a.badge:focus, a.badge:hover {
 }
 
 .jumbotron, .jumbotron .h1, .jumbotron h1 {
-    color: inherit
+    color: white;
+
 }
 
 .jumbotron {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    background-color: #eee
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    background-color: #eee;
+    align-content: center;
 }
 
+.jumbotron-image {
+    position: relative;
+    background: center center;
+    background-size: cover;
+    height: 100%;
+    min-height: 400px;
+
+}
+
+.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.text-block {
+    display: inline;
+    background-color: rgba(209,209,209,0.51);
+    padding: 0.1em;
+}
+
+
 .jumbotron p {
-    margin-bottom: 15px;
-    font-size: 21px;
+    margin-bottom: 0px;
+    font-size: 50px;
     font-weight: 200
 }
 
 .alert, .thumbnail {
-    margin-bottom: 22px
+    margin-bottom: 0px
 }
 
 .alert .alert-link, .close {
@@ -5043,9 +5081,9 @@ a.badge:focus, a.badge:hover {
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
-    border-radius: 6px;
-    padding-left: 15px;
-    padding-right: 15px
+    border-radius: 0px;
+    padding: 0px;
+
 }
 
 .jumbotron .container {
@@ -5054,17 +5092,18 @@ a.badge:focus, a.badge:hover {
 
 @media screen and (min-width: 768px) {
     .jumbotron {
-        padding-top: 48px;
-        padding-bottom: 48px
+        padding-top: 0px;
+        padding-bottom: 0px
     }
 
     .container .jumbotron, .container-fluid .jumbotron {
-        padding-left: 60px;
-        padding-right: 60px
+        padding-left: 0px;
+        padding-right: 0px
     }
 
     .jumbotron .h1, .jumbotron h1 {
-        font-size: 63px
+        font-size: 90px;
+
     }
 }
 

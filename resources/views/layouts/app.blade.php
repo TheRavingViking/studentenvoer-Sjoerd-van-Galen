@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
     <link href="/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
 
     <!-- Scripts -->
@@ -86,6 +87,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/public/js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
