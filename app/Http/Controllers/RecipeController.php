@@ -16,8 +16,11 @@ class RecipeController extends Controller
 {
     public function index()
     {
-        $recipes = Recipes::with('ratings')->get();
-        return view('overview', compact('recipes'));
+        $dinners = Recipes::with('ratings')->where('category', '=', 'Diner')->latest()->limit(3)->get();
+        $lunches = Recipes::with('ratings')->where('category', '=', 'Lunch')->latest()->limit(3)->get();
+        $breakfasts = Recipes::with('ratings')->where('category', '=', 'Breakfast')->latest()->limit(3)->get();
+        $desserts = Recipes::with('ratings')->where('category', '=', 'Dessert')->latest()->limit(3)->get();
+        return view('overview', array('dinners' => $dinners, 'lunches' => $lunches, 'breakfasts' => $breakfasts, 'desserts' => $desserts));
     }
 
     public function show(Recipes $recipes)

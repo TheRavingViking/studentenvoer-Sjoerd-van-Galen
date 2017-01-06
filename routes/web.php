@@ -21,7 +21,11 @@ Route::post('/', 'RecipeController@insert');
 Route::post('/addcomment', 'RecipeController@insertComment');
 Route::post('/deleteComment', 'RecipeController@deleteComment');
 Route::post('/deleteRecipe', 'RecipeController@deleteRecipe');
-Route::get('/insertRating', 'RecipeController@insertRating');
+Route::get('/breakfast', 'RecipeController@breakfast');
+Route::get('/lunch', 'RecipeController@lunch');
+Route::get('/dinner', 'RecipeController@dinner');
+Route::get('/dessert', 'RecipeController@dessert');
+//Route::get('/insertRating', 'RecipeController@insertRating');
 
 
 

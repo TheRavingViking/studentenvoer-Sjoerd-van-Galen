@@ -23,8 +23,8 @@
                 <p class="text-block">{{$recipes->category}}</p>
             </div>
         </div>
-        <div class="jumbotron" style="background: coral">
-            <div class="container" style="padding: 2.5em">
+        <div class="jumbotron" style="background: #588c7e">
+            <div class="container container-alt">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
                         <input id="likes" name="likes" type="text" class="" data-size="lg"
@@ -43,81 +43,101 @@
                 {{$recipes->description}}
             </div>
         </div>
-    </div>
-    </div>
-    <div class="jumbotron" style="background: seagreen">
-        <div class="container" style="padding: 2.5em">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    @foreach ($recipes->ingredients as $ingredient)
-                        <ul class="list-group">
-                            <li class="list-group-item" style="color: black"> {{$ingredient->name}} </li>
-                        </ul>
-                    @endforeach
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-                    <ol>
-                        @foreach ($recipes->steps as $step)
+        <div class="jumbotron" style="background: #f2e394;">
+            <div class="container container-alt" style="color: black">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                        <h2> Ingredients </h2>
+                        <hr>
+                        <br>
+                        @foreach ($recipes->ingredients as $ingredient)
+                            <div class="recipe-list">
+                                <i class="glyphicon glyphicon-ok"></i> {{$ingredient->name}} <br>
 
-                            <li>{{$step->description}}</li>
-
+                            </div>
                         @endforeach
-                    </ol>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                        <h2> Steps </h2>
+                        <hr>
+                        <br>
+
+                        @foreach ($recipes->steps as $step)
+                            <div class="recipe-list" style="">
+                                <B> Step {{$i++}}: </B> {{$step->description}}
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="jumbotron" style="background: darksalmon">
-        <div class="container" style="padding: 2.5em">
-            @foreach ($recipes->comments as $comment)
-                Posted by {{$comment->naam}} <br>
-                {{$comment->comment}}<br>
-                at {{$comment->created_at}}<br>
-                <form method="post" action="/deleteComment">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
-                    <span class="input-group-btn">
+        @if (!empty($recipes->comments))
+            <div class="jumbotron" style="background: #f2ae72">
+                <div class="container container-alt">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="color: black">
+                            @foreach ($recipes->comments as $comment)
+                                Posted by {{$comment->naam}} <br>
+                                {{$comment->comment}}<br>
+                                at {{$comment->created_at}}<br>
+                                <form method="post" action="/deleteComment">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                    <span class="input-group-btn">
                             <button class="btn btn-danger" type="submit">Delete</button>
                         </span>
-                </form>
-                <hr>
-            @endforeach
-        </div>
+                                </form>
+                                <hr>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        @else
+
+        @endif
     </div>
-    <div class="jumbotron" style="background: oldlace">
-        <div class="container" style="padding: 2.5em">
+
+    <div class="jumbotron" style="background: #f5f8fa; padding-bottom: 25px">
+        <div class="container container-alt">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                @if ($recipes->comments == "[]")
+                    <br>
+                    <h2 style="color: black">No comments yet! Be the first to comment!</h2>
+                    <br>
+                @endif
                 <form class="form-horizontal" method="post" action="/addcomment">
-                    <div class="form-group">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <label class="control-label" for="name"></label>
-                        <input id="name" name="name" type="text" placeholder="Name"
-                               class="form-control input-md" required="">
-                    </div>
 
-                    <div class="form-group">
-                        <label class="control-label" for="Email"></label>
-                        <input id="email" name="email" type="text" placeholder="Fill in you email"
-                               class="form-control input-md" required="">
-                    </div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <label class="control-label" for="name"></label>
+                    <input id="name" name="name" type="text" placeholder="Name"
+                           class="form-control input-md" required="">
 
-                    <div class="form-group">
-                        <label class="control-label" for="comment"></label>
-                        <textarea class="form-control" id="comment"
-                                  name="comment" required="" placeholder="Write your comment here"></textarea>
-                    </div>
 
+                    <label class="control-label" for="Email"></label>
+                    <input id="email" name="email" type="text" placeholder="Fill in you email"
+                           class="form-control input-md" required="">
+
+
+                    <label class="control-label" for="comment"></label>
+                    <textarea class="form-control" id="comment"
+                              name="comment" required=""
+                              placeholder="Write your comment here" style="resize: vertical;"></textarea>
+
+                    <br>
                     <div>
-                        <label for="rate" class="control-label">Rate this recipe</label>
-                        <input id="rate" name="rate" class="rating rating-loading">
+                        <label for="rate" class="control-label" style="color: black">Rate this
+                            recipe</label>
+                        <input id="rate" name="rate" class="rating rating-loading" required>
                     </div>
+                    <br>
 
-                    <div class="form-group">
-                        <label class="control-label" for="postcomment"></label>
-                        <input type="hidden" name="id" value="{{$recipes->id}}">
-                        <button id="postcomment" name="postcomment" class="btn btn-primary">Post</button>
-                    </div>
+                    <label class="control-label" for="postcomment"></label>
+                    <input type="hidden" name="id" value="{{$recipes->id}}">
+                    <button id="postcomment" name="postcomment" class="btn btn-primary">Post
+                    </button>
 
 
                 </form>

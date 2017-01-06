@@ -1362,7 +1362,7 @@ a:focus {
 hr {
     margin-top: 22px;
     margin-bottom: 22px;
-    border-top: 1px solid #eee
+    border-top: 1px solid #000000;
 }
 
 .sr-only {
@@ -1633,6 +1633,12 @@ ol, ul {
     padding-right: 5px
 }
 
+.recipe-list {
+    font-size: 1.5em;
+
+}
+
+
 dd, dt {
     line-height: 1.6
 }
@@ -1666,8 +1672,17 @@ dd {
     }
 
     .container {
-        width: 750px
+        width: 750px;
+
+
     }
+
+    .container-alt {
+        padding: 2.5em;
+
+    }
+
+
 
     .push-spaces {
         height: 500px;
@@ -4274,8 +4289,10 @@ tbody.collapse.in {
 }
 
 .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
-    margin-right: -15px;
-    margin-left: -15px
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .navbar-static-top {
@@ -5039,6 +5056,17 @@ a.badge:focus, a.badge:hover {
 
 }
 
+.panel-image {
+    position: relative;
+    background: center center;
+    background-size: cover;
+    height: 50%;
+    min-height: 220px;
+
+}
+
+
+
 .text-center {
     position: absolute;
     left: 50%;
@@ -5082,7 +5110,7 @@ a.badge:focus, a.badge:hover {
 
 .container .jumbotron, .container-fluid .jumbotron {
     border-radius: 0px;
-    padding: 0px;
+    padding: 15px;
 
 }
 
@@ -5097,8 +5125,8 @@ a.badge:focus, a.badge:hover {
     }
 
     .container .jumbotron, .container-fluid .jumbotron {
-        padding-left: 0px;
-        padding-right: 0px
+        padding-left: 15px;
+        padding-right: 15px
     }
 
     .jumbotron .h1, .jumbotron h1 {
@@ -5552,8 +5580,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 .panel {
     margin-bottom: 22px;
     background-color: #fff;
-    border: 1px solid transparent;
-    border-radius: 4px;
+    border: 0px solid transparent;
+    border-radius: 0px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
 }
 
