@@ -3342,13 +3342,24 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-default {
     color: #636b6f;
     background-color: #fff;
-    border-color: #ccc
+    border-color: #ccc;
 }
+
+.btn-hover {
+    color: #636b6f;
+    background-color: #fff;
+    border-color: #ccc;
+    -webkit-box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);
+    -moz-box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);
+    box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);
+}
+
 
 .btn-default.focus, .btn-default:focus {
     color: #636b6f;
     background-color: #e6e6e6;
-    border-color: #8c8c8c
+    border-color: #8c8c8c;
+
 }
 
 .btn-default.active, .btn-default:active, .btn-default:hover, .open > .btn-default.dropdown-toggle {
@@ -3360,7 +3371,9 @@ a.btn.disabled, fieldset[disabled] a.btn {
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open > .btn-default.dropdown-toggle.focus, .open > .btn-default.dropdown-toggle:focus, .open > .btn-default.dropdown-toggle:hover {
     color: #636b6f;
     background-color: #d4d4d4;
-    border-color: #8c8c8c
+    border-color: #8c8c8c;
+    box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);">
+
 }
 
 .btn-default.disabled.focus, .btn-default.disabled:focus, .btn-default.disabled:hover, .btn-default[disabled].focus, .btn-default[disabled]:focus, .btn-default[disabled]:hover, fieldset[disabled] .btn-default.focus, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:hover {
@@ -5045,6 +5058,30 @@ a.badge:focus, a.badge:hover {
     margin-bottom: 0px;
     background-color: #eee;
     align-content: center;
+    -webkit-box-shadow: inset 0px 0px 39px -8px rgba(0,0,0,0.27);
+    -moz-box-shadow: inset 0px 0px 39px -8px rgba(0,0,0,0.27);
+    box-shadow: inset 0px 0px 39px -8px rgba(0,0,0,0.27);
+}
+
+.jumbotron-gradient {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    align-content: center;
+    color: white;
+
+    background: rgba(255,175,75,1);
+    background: -moz-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,137,10,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,137,10,1)));
+    background: -webkit-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,137,10,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,137,10,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,137,10,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,175,75,1) 0%, rgba(255,137,10,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff890a', GradientType=0 );
+    -webkit-box-shadow: inset 0px 0px 39px -8px rgba(0,0,0,0.27);
+    -moz-box-shadow: inset 0px 0px 39px -8px rgba(0,0,0,0.27);
+    box-shadow: inset 0px 0px 39px -8px rgba(0,0,0,0.27);
+
 }
 
 .jumbotron-image {
@@ -5053,15 +5090,6 @@ a.badge:focus, a.badge:hover {
     background-size: cover;
     height: 100%;
     min-height: 400px;
-
-}
-
-.panel-image {
-    position: relative;
-    background: center center;
-    background-size: cover;
-    height: 50%;
-    min-height: 220px;
 
 }
 
@@ -5582,8 +5610,30 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
     background-color: #fff;
     border: 0px solid transparent;
     border-radius: 0px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+    -webkit-box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);
+    -moz-box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);
+    box-shadow: 9px 7px 29px -13px rgba(0,0,0,1);
 }
+
+.panel-image {
+    position: relative;
+    background: center center;
+    background-size: cover;
+    height: 50%;
+    min-height: 220px;
+
+}
+
+.panel-heading-overview{
+
+    text-align: center;
+    padding: 0.5em;
+    font-size: 2em;
+    color: black;
+
+}
+
+
 
 .panel-title, .panel > .list-group, .panel > .panel-collapse > .list-group, .panel > .panel-collapse > .table, .panel > .table, .panel > .table-responsive > .table {
     margin-bottom: 0

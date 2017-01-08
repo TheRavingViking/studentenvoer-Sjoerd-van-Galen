@@ -16,12 +16,41 @@ class RecipeController extends Controller
 {
     public function index()
     {
-        $dinners = Recipes::with('ratings')->where('category', '=', 'Diner')->latest()->limit(3)->get();
+        $dinners = Recipes::with('ratings')->where('category', '=', 'Dinner')->latest()->limit(3)->get();
         $lunches = Recipes::with('ratings')->where('category', '=', 'Lunch')->latest()->limit(3)->get();
         $breakfasts = Recipes::with('ratings')->where('category', '=', 'Breakfast')->latest()->limit(3)->get();
         $desserts = Recipes::with('ratings')->where('category', '=', 'Dessert')->latest()->limit(3)->get();
         return view('overview', array('dinners' => $dinners, 'lunches' => $lunches, 'breakfasts' => $breakfasts, 'desserts' => $desserts));
     }
+
+    public function breakfast()
+    {
+        $recipes = Recipes::with('ratings')->where('category', '=', 'Breakfast')->latest()->paginate(12);
+        return view('categoryOverview', array('recipes' => $recipes));
+    }
+
+    public function lunch()
+    {
+        $recipes = Recipes::with('ratings')->where('category', '=', 'Lunch')->latest()->paginate(12);
+        return view('categoryOverview', array('recipes' => $recipes));
+    }
+
+    public function dinner()
+    {
+        $recipes = Recipes::with('ratings')->where('category', '=', 'Dinner')->latest()->paginate(12);
+        return view('categoryOverview', array('recipes' => $recipes));
+    }
+
+
+    public function dessert()
+    {
+        $recipes = Recipes::with('ratings')->where('category', '=', 'Dessert')->latest()->paginate(12);
+        return view('categoryOverview', array('recipes' => $recipes));
+    }
+
+
+
+
 
     public function show(Recipes $recipes)
     {

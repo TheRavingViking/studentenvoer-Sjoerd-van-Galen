@@ -30,6 +30,7 @@
                         <input id="likes" name="likes" type="text" class="" data-size="lg"
                                value="{{$recipes->Ratings->avg('rating')}}">
                     </div>
+                    @if (Auth::check())
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                         <form method="post" action="/deleteRecipe">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -39,6 +40,7 @@
                         </span>
                         </form>
                     </div>
+                        @endif
                 </div>
                 {{$recipes->description}}
             </div>
@@ -80,6 +82,7 @@
                                 Posted by {{$comment->naam}} <br>
                                 {{$comment->comment}}<br>
                                 at {{$comment->created_at}}<br>
+                                @if (Auth::check())
                                 <form method="post" action="/deleteComment">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <input type="hidden" name="comment_id" value="{{$comment->id}}">
@@ -87,6 +90,7 @@
                             <button class="btn btn-danger" type="submit">Delete</button>
                         </span>
                                 </form>
+                                @endif
                                 <hr>
                             @endforeach
                         </div>
