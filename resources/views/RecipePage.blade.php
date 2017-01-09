@@ -23,12 +23,12 @@
                 <p class="text-block">{{$recipes->category}}</p>
             </div>
         </div>
-        <div class="jumbotron" style="background: #588c7e">
+        <div class="jumbotron" style="background: #2F4858">
             <div class="container container-alt">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
                         <input id="likes" name="likes" type="text" class="" data-size="lg"
-                               value="{{$recipes->Ratings->avg('rating')}}">
+                               value="{{round($recipes->Ratings->avg('rating'))}}">
                     </div>
                     @if (Auth::check())
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -45,8 +45,8 @@
                 {{$recipes->description}}
             </div>
         </div>
-        <div class="jumbotron" style="background: #f2e394;">
-            <div class="container container-alt" style="color: black">
+        <div class="jumbotron" style="background: #33658A;">
+            <div class="container container-alt" style="color: white">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                         <h2> Ingredients </h2>
@@ -74,10 +74,10 @@
             </div>
         </div>
         @if (!empty($recipes->comments))
-            <div class="jumbotron" style="background: #f2ae72">
+            <div class="jumbotron" style="background: #86BBD8">
                 <div class="container container-alt">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="color: black">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="color: white">
                             @foreach ($recipes->comments as $comment)
                                 Posted by {{$comment->naam}} <br>
                                 {{$comment->comment}}<br>

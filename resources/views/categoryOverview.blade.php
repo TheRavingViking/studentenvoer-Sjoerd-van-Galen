@@ -29,7 +29,7 @@
                                 </div>
                                 <div style="padding: 1em">
                                     <input id="likes" name="" type="text" class="rating rating-loading" data-size="sm"
-                                           value="{{$recipe->Ratings->avg('rating')}}" disabled>
+                                           value="{{round($recipe->Ratings->avg('rating'))}}" disabled>
                                     <button class="btn btn-default">
                                         <a href="/recipepage/{{$recipe->id}}">Read more</a>
                                     </button>

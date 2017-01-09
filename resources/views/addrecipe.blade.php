@@ -21,7 +21,7 @@
                                 <option value="">Category</option>
                                 <option value="Breakfast">Breakfast</option>
                                 <option value="Lunch">Lunch</option>
-                                <option value="Diner">Diner</option>
+                                <option value="Dinner">Dinner</option>
                                 <option value="Dessert">Dessert</option>
                             </select>
                         </div>

@@ -1362,7 +1362,7 @@ a:focus {
 hr {
     margin-top: 22px;
     margin-bottom: 22px;
-    border-top: 1px solid #000000;
+    border-top: 1px solid #ffffff;
 }
 
 .sr-only {
@@ -5085,6 +5085,7 @@ a.badge:focus, a.badge:hover {
 }
 
 .jumbotron-image {
+
     position: relative;
     background: center center;
     background-size: cover;

@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+
 Route::get('/', 'RecipeController@index');
 Route::get('overview', 'RecipeController@index');
 Route::get('/recipepage/{recipes}', 'RecipeController@show');

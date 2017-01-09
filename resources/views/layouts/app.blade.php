@@ -49,7 +49,8 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp; @if (Auth::check())
+                    &nbsp; @if (Auth::guest())
+                    @else
                         <li><a href="{{ url('/addrecipe') }}">Add Recept</a></li>
                         <li><a href="{{ url('/register') }}">Register User</a></li>
                     @endif
@@ -61,6 +62,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
+
 
                     @else
                         <li class="dropdown">

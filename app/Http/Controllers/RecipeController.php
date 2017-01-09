@@ -88,7 +88,7 @@ class RecipeController extends Controller
         foreach ($ing as $ingredients) {
             if (!$ingredients == "") {
                 $ingredient = new Ingredients();
-                $ingredient->ingredient = $ingredients;
+                $ingredient->name = $ingredients;
                 $ingredient->recipes()->associate($recipe);
                 $ingredient->save();
             }
