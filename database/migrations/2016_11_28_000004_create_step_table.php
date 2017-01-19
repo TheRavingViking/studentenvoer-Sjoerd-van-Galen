@@ -13,12 +13,13 @@ class CreateStepTable extends Migration
      */
     public function up()
     {
-        Schema::create('step', function (Blueprint $table) {
+        Schema::create('steps', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('step_number');
             $table->text('description');
             $table->integer('recipes_id')->unsigned();
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
 
             $table->foreign('recipes_id', 'fk_step_recipes_idx')
@@ -35,6 +36,6 @@ class CreateStepTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('step');
+       Schema::drop('steps');
      }
 }

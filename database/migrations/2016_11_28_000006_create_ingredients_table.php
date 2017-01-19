@@ -16,10 +16,10 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('unit', 20);
-            $table->string('amount', 20);
+            $table->string('name', 255);
             $table->integer('recipes_id')->unsigned();
-
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
             $table->foreign('recipes_id', 'fk_ingredients_recipes1_idx')
                 ->references('id')->on('recipes')
@@ -35,6 +35,6 @@ class CreateIngredientsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('ingredients');
+       Schema::drop('ingredients');
      }
 }

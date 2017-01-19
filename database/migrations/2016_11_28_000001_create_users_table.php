@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
 
             $table->unique(["email"], 'unique_users');
             $table->nullableTimestamps();
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +34,6 @@ class CreateUsersTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('users');
+       Schema::drop('users');
      }
 }

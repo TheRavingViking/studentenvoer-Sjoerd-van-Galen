@@ -18,7 +18,8 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->integer('rating');
             $table->integer('recipes_id')->unsigned();
-
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
             $table->foreign('recipes_id', 'fk_ratings_recipes1_idx')
                 ->references('id')->on('recipes')
@@ -34,6 +35,6 @@ class CreateRatingsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('ratings');
+       Schema::drop('ratings');
      }
 }

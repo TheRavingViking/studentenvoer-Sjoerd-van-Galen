@@ -21,7 +21,8 @@ class CreateRecipesTable extends Migration
             $table->string('category', 25);
             $table->text('image')->nullable();
             $table->integer('users_id')->unsigned();
-
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
             $table->foreign('users_id', 'fk_recipes_users1_idx')
                 ->references('id')->on('users')
@@ -37,6 +38,6 @@ class CreateRecipesTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('recipes');
+       Schema::drop('recipes');
      }
 }

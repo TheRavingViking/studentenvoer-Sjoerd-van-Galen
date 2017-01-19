@@ -18,19 +18,16 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->string('comment', 255)->nullable();
             $table->string('naam', 45)->nullable();
+            $table->string('email', 255)->nullable();
             $table->integer('recipes_id')->unsigned();
-            $table->integer('users_id')->unsigned();
-
+            $table->nullableTimestamps();
+            $table->softDeletes();
 
             $table->foreign('recipes_id', 'fk_comments_recipes1_idx')
                 ->references('id')->on('recipes')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('users_id', 'fk_comments_users1_idx')
-                ->references('id')->on('users')
-                ->onDelete('no action')
-                ->onUpdate('no action');
         });
     }
 
@@ -41,6 +38,6 @@ class CreateCommentsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('comments');
+       Schema::drop('comments');
      }
 }

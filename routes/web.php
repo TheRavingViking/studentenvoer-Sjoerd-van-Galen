@@ -11,14 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
-Auth::routes();
+Route::get('/', 'RecipeController@index');
+Route::get('overview', 'RecipeController@index');
+Route::get('/recipepage/{recipes}', 'RecipeController@show');
+Route::get('/addrecipe', 'RecipeController@create');
+Route::post('/', 'RecipeController@insert');
+Route::post('/addcomment', 'RecipeController@insertComment');
+Route::post('/deleteComment', 'RecipeController@deleteComment');
+Route::post('/deleteRecipe', 'RecipeController@deleteRecipe');
+Route::get('/breakfast', 'RecipeController@breakfast');
+Route::get('/lunch', 'RecipeController@lunch');
+Route::get('/dinner', 'RecipeController@dinner');
+Route::get('/dessert', 'RecipeController@dessert');
+//Route::get('/insertRating', 'RecipeController@insertRating');
 
-Route::get('/home', 'HomeController@index');
+
+
+\Debugbar::enable(); //<-- Toont debugbar !!!! enable of disable!!!!
